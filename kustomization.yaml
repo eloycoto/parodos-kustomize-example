@@ -1,0 +1,16 @@
+kind: Kustomization
+bases:
+- https://github.com/parodos-dev/parodos//hack/manifests/backstage?ref=main
+
+patchesStrategicMerge:
+- parodos_patch.yaml
+
+images:
+- name: quay.io/parodos-dev/workflow-service:main
+  newTag: "main"
+
+- name: quay.io/parodos-dev/notification-service:main
+  newTag: "main"
+
+- name: quay.io/parodos-dev/backstage-parodos:latest-openshift
+  newTag: "main"
